@@ -155,7 +155,7 @@ roc_brain2 <- function(data,outcome){
   create_labels <- function(roc_curves) {
     sapply(names(roc_curves), function(name) {
       auc <- auc(roc_curves[[name]])
-      p_value <- roc.test(roc_curves[[name]], roc_curves$`Age+sex+edu`, method="delong",boot.n=1000)$p.value
+      p_value <- roc.test(roc_curves[[name]], roc_curves$`Age+sex+edu`,boot.n=2000)$p.value
       sprintf("%s (%.3f, p=%.3f)", name, auc, p_value)
     })
   }
@@ -171,7 +171,7 @@ roc_brain2 <- function(data,outcome){
   #       # For the first ROC curve, there is no preceding curve to compare with
   #       sprintf("%s (AUC=%.3f)", names_list[i], auc_value)
   #     } else {
-  #       p_value <- roc.test(roc_curves[[i]], roc_curves[[i - 1]], method="delong",boot.n=2000)$p.value
+  #       p_value <- roc.test(roc_curves[[i]], roc_curves[[i - 1]], boot.n=2000)$p.value
   #       sprintf("%s (%.3f, p=%.3f)", names_list[i], auc_value, p_value)
   #     }
   #   })
@@ -357,7 +357,7 @@ roc_brain2 <- function(data,outcome){
   #       # For the first ROC curve, there is no preceding curve to compare with
   #       sprintf("%s (AUC=%.3f)", names_list[i], auc_value)
   #     } else {
-  #       p_value <- roc.test(roc_curves[[i]], roc_curves[[i - 1]], method="delong",boot.n=2000)$p.value
+  #       p_value <- roc.test(roc_curves[[i]], roc_curves[[i - 1]], boot.n=2000)$p.value
   #       sprintf("%s (%.3f, p=%.3f)", names_list[i], auc_value, p_value)
   #     }
   #   })
