@@ -1228,7 +1228,7 @@ load(file = "./Project/Proteomic aging/Analyses/ukb_pool.Rdata")
        
        
        
-       
+       #Note this previous Fig. 2 is now eFig. 4 in revised manuscript-------------
        #Fig 2 ageotype and disease, mulicomorbidity, and death
        
        fig2 <-grid.grabExpr(draw(super+extra,padding = unit(c(0.5, 0.5, 0.5, 0.5), "mm"))) %>% 
